@@ -26,7 +26,6 @@ To include color from the command line:
 
     ruby -r minitest/pride gigasecond_test.rb
 
-
 ## Source
 
 Chapter 9 in Chris Pine's online Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=09](http://pine.fm/LearnToProgram/?Chapter=09)

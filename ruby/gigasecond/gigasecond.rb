@@ -1,13 +1,11 @@
 from = 0
 
-
-module Gigasecond
-  def from
-    from = 2019, 04, 02
-  end
-  def to
-    to = 2019, 04, 02 + 10^9
+class Gigasecond
+  def self.from(time_in)
+    output = 0
+    one_billion = 1000000000
+    output = time_in.to_i
+    output += one_billion
+    Time.at(output).utc
   end
 end
-
-
