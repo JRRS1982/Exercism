@@ -13,7 +13,7 @@ module ResistorColor
   ]
 
   def self.color_code(color)
-    COLORS.index(color);
+    COLORS.index(color)
   end
   
 end
