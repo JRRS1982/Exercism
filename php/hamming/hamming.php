@@ -10,8 +10,15 @@ Remove this comment before submitting your exercise.
 function distance(string $strandA, string $strandB) : int
 {
     $output = 0;
-    if ($strandA != $strandB) {
-        $output += 1;
+    $ArrayA = str_split($strandA);
+    $ArrayB = str_split($strandB);
+    $indexB = 0;
+
+    foreach ($ArrayA as $itemA){
+        if ($itemA != $ArrayB[$indexB]) {
+            $output += 1;
+        }
+        $indexB += 1;
     }
     return $output;
 }
