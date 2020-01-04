@@ -1,4 +1,5 @@
-javascript/hello-world/node_modules/
+/javascript/hello-world/node_modules/
 DS_Store/
 *node_modules/*
-javascript/leap/node_modules
+/javascript/leap/node_modules
+/javascript/resistor-color/node_modules
