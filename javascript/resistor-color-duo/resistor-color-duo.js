@@ -15,14 +15,12 @@ export const decodedValue = (input) => {
                   'grey',
                   'white'
   ];
-  var result = [];
 
+  const result = [];
 
-  input.forEach(function(element){
-  if (result.length < 2) {
+  input.slice(0,2).forEach(function(element) {
     result.push(COLOURS.indexOf(element))
-  }
-})
+  })
 
-  return parseInt(result.join(''));
+  return Number(result.join(''));
 };
