@@ -3,3 +3,5 @@ DS_Store/
 *node_modules/*
 /javascript/leap/node_modules
 /javascript/resistor-color/node_modules
+/javascript/resistor-color-duo/node_modules
+/typescript/hello-world/node_modules
