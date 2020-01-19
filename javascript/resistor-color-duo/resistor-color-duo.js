@@ -1,8 +1,3 @@
-//
-// This is only a SKELETON file for the 'Resistor Color Duo' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 export const decodedValue = (input) => {
   const COLOURS = ['black',
                   'brown',
@@ -17,10 +12,11 @@ export const decodedValue = (input) => {
   ];
 
   const result = [];
+  let item;
 
-  input.slice(0,2).forEach(function(element) {
-    result.push(COLOURS.indexOf(element))
-  })
+  for (item of input.slice(0,2)) {
+    result.push(COLOURS.indexOf(item));
+  }
 
   return Number(result.join(''));
 };
