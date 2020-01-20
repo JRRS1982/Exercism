@@ -1,6 +1,6 @@
 Run tests by:
 ```
-$ phpunit exercism/example_test.php 
+$ phpunit exercism/example_test.php
 ``
 
 Running the tests
