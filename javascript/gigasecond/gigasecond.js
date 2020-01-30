@@ -4,6 +4,6 @@
 //
 
 export const gigasecond = (dateObject) => {
-  let gigaSeconds = 10**9*1000;
+  const gigaSeconds = 1e12;
   return new Date(dateObject.getTime() + gigaSeconds)
 };
