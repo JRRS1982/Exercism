@@ -14,15 +14,24 @@ export class Clock {
     return this.epoch.toISOString(12).slice(11,16);
   }
 
-  plus() {
-    throw new Error('Remove this statement and implement this function');
+  plus(minutes = 0) {
+    this.epoch.setMinutes( this.epoch.getMinutes() + minutes );
+    return this.epoch.toISOString(12).slice(11,16);
   }
 
-  minus() {
-    throw new Error('Remove this statement and implement this function');
+  minus(minutes = 0) {
+    this.epoch.setMinutes( this.epoch.getMinutes() - minutes );
+    return this.epoch.toISOString(12).slice(11,16);
   }
 
-  equals() {
-    throw new Error('Remove this statement and implement this function');
+  equals(inputDate) {
+    this.eqDate = inputDate.epoch;
+    let result = false;
+
+    if (this.epoch.toISOString(12).slice(11,16) === this.eqDate.toISOString(12).slice(11,16)) {
+        result = true;
+    }
+    
+    return result;
   }
 }
