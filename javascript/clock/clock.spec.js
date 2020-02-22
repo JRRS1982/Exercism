@@ -18,7 +18,7 @@ describe('Clock', () => {
       expect(new Clock(25, 0).toString()).toEqual('01:00');
     });
 
-    xtest('hour rolls over continuously', () => {
+    test('hour rolls over continuously', () => {
       expect(new Clock(100, 0).toString()).toEqual('04:00');
     });
 
