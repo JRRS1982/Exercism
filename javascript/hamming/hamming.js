@@ -22,19 +22,12 @@ export const compute = (first, second) => {
 
   if (firstSplit == secondSplit) {
     return count;
-  } else if (!firstSplit) {
-    throw 'left strand must not be empty';
-  } else if (!secondSplit) {
-    throw 'right strand must not be empty';
   } else {
-      firstSplit.forEach(function (element, index) {
-        if (element != secondSplit[index]) {
-            count ++;
-        }
-      });
+    firstSplit.forEach(function (element, index) {
+    if (element != secondSplit[index]) {
+        count ++;
+    }
+    });
   }
-  
-
-  
   return count;
 };
