@@ -34,7 +34,7 @@
   "license": "MIT",
   "dependencies": {
     "acord": "^1.0.0",
-    "acorn": "^6.3.0",
+    "acorn": "^6.4.1",
     "acorn-jsx": "^5.0.2"
   }
 }
