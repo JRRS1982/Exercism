@@ -1,5 +1,3 @@
-// ran this in exercisms new code editor, saved here for reference.
-
 export class DnDCharacter {
   hitpoints: number;
   constitution: number;
