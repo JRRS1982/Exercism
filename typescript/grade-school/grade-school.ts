@@ -1,62 +1,37 @@
-interface Pupil {
-  name: string;
-  grade: number;
-}
-
-interface Year {
-  grade: [Pupil];
-}
-
+/**
+ * Records are immutable, which is important for one test which checks mutability.
+ */
 export class GradeSchool {
-  _pupils: { [grade: number]: [names: string] } = {};
-  
-  roster(): { [grade: number]: [names: string] } {
-    for (const grade in this._pupils) {
-      this._pupils[grade].sort((a, b) => a.localeCompare(b));
-    }
-    
-    return { ...this._pupils };
-  }
+  private students: Record<string, number> = {};
 
-  private isCurrentStudent(name: string): boolean {
-    for (const grade in this._pupils) {
-      if (this._pupils[grade].includes(name)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  private deleteCurrentStudent(name: string): void {
-    for (const grade in this._pupils) {
-      if (this._pupils[grade].includes(name)) {
-        const key = this._pupils[grade].indexOf(name);
-        this._pupils[grade].splice(key, 1);
-      }
-    }
+  roster(): Record<number, string[]> {
+    const grades = [...new Set(Object.values(this.students))];
+    return grades.reduce(
+      // get students for each grade like so { '3': [ 'Chelsea' ], '7': [ 'Logan' ] }
+      (acc, grade) => ({ ...acc, [grade]: this.grade(grade) }),
+      {}
+    );
   }
 
   add(name: string, grade: number): void {
-    const isCurrentStudent = this.isCurrentStudent(name);
-    if (isCurrentStudent) {
-      // delete the current student
-      this.deleteCurrentStudent(name);
-      return;
-    }
-    if (grade in this._pupils) {
-      this._pupils[grade].push(name);
-      return;
-    }
-
-    this._pupils[grade] = [name];
-    return;
+    this.students[name] = grade;
   }
 
   grade(grade: number): string[] {
-    if (!this._pupils[grade]) {
-      return [];
-    }
-    const copy = [...this._pupils[grade]];
-    return copy.sort((a, b) => a.localeCompare(b)); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare
+    const a = [
+      ...Object.entries(this.students)
+        // filter by grade
+        .filter(([_, g]) => grade === g)
+        // map away the index
+        .map(([name, _]) => name)
+        .sort(),
+    ];
+
+    return [
+      ...Object.entries(this.students)
+        .filter(([_, g]) => grade === g)
+        .map(([n, _]) => n)
+        .sort(),
+    ];
   }
 }
